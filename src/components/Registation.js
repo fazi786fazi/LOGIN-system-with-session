@@ -16,6 +16,12 @@ function register(){
  sessionStorage.setItem("email",email);
  sessionStorage.setItem("pass",pass);
  sessionStorage.setItem("c_pass",c_pass);
+
+//  localStorage.setItem("name",name);
+//  localStorage.setItem("email",email);
+//  localStorage.setItem("pass",pass);
+//  localStorage.setItem("lname",lname);
+//  localStorage.setItem("c_pass",c_pass);
  
  alert("are your sure create account")
 

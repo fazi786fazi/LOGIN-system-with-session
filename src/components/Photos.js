@@ -5,18 +5,33 @@ export default function Photos() {
   const navigate = useNavigate();
   let login= sessionStorage.getItem("code");
   if(login==="login"){
-    console.log("aliza")
+   
+  }
+  else if (login==="logout"){
+    navigate('/');
   }
   else{
     navigate('/');
-    console.log("aliza")
+    
   }
+//   function list(){
+//    if(sessionStorage.getItem("name") && sessionStorage.getItem("lname")){
+// return <h1>admin</h1>
+//    }
+//    else if(localStorage.getItem("name") && localStorage.getItem("lname")){
+//     return <h1>admin</h1>
+//   }
+  // }
   return (
     <div>
     
       <section className="overflow-hidden text-gray-700"> 
   <div className="container px-5 py-2 mx-auto lg:pt-24 lg:px-32">
-    <h1 className='text-black text-lg font-medium text-center py-2'>Wellcome:{sessionStorage.getItem("name")+sessionStorage.getItem("lname")}</h1>
+    <h1 className='text-black text-lg font-medium text-center py-2'>
+      Wellcome:{sessionStorage.getItem("name")+" "+sessionStorage.getItem("lname")
+      &&
+     localStorage.getItem("name")+" "+localStorage.getItem("lname")}
+      </h1>
     <div className="flex flex-wrap -m-1 md:-m-2">
       <div className="flex flex-wrap w-1/2">
         <div className="w-1/2 p-1 md:p-2">

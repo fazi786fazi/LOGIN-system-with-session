@@ -1,15 +1,20 @@
 import React from "react";
+import nexflixlogo from "./netflix-logo-png-2584.png"
 
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
   const navigate = useNavigate();
-  function adminlogin(){
+  const adminlogin=()=>{
+    
  let email1= document.getElementById("email").value;
  let pass1= document.getElementById("pass").value;
 
  let email=sessionStorage.getItem("email");
  let pass=sessionStorage.getItem("pass");
+
+ let email2=localStorage.getItem("email");
+ let pass2=localStorage.getItem("pass");
 
 
  
@@ -18,11 +23,20 @@ export default function Login() {
   alert("correct email and pass vaild");
   //  window.location.href="/Photos"
   sessionStorage.setItem("code", "login")
+
+ navigate('/Photos');
+
+}
+else if( email2===email1 && pass2===pass1){
+  alert("correct email and pass vaild");
+  //  window.location.href="/Photos"
+  sessionStorage.setItem("code", "login")
  navigate('/Photos');
  
   
  
- }else{
+ }
+ else{
   alert("incorrect email and pass invaild");
  }
   }
@@ -39,7 +53,7 @@ export default function Login() {
                       <div className="text-center">
                         <img
                           className="mx-auto w-48"
-                          src="https://www.freepnglogos.com/uploads/netflix-logo-history-png-33.png"
+                          src={nexflixlogo}
                           alt="logo"
                         />
                         <h4 className="text-xl font-semibold mt-1 mb-12 pb-1">
@@ -71,6 +85,8 @@ export default function Login() {
                             className="inline-block bg-black px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
                             type="submit"
                             onClick={adminlogin}
+                       
+                          
 
                           >
                             Log in
