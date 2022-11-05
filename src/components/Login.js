@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import nexflixlogo from "./netflix-logo-png-2584.png"
 
 import { Link, useNavigate } from "react-router-dom";
@@ -8,16 +8,17 @@ export default function Login() {
   const {dispatch}=useContext(n1);
   const navigate = useNavigate();
 
-  useEffect(()=>{
-    let login= sessionStorage.getItem("code")
-    let login1= localStorage.getItem("login")
-    if(login1){
-      navigate('/Photos');
-    }
+//   useEffect(()=>{
+//     //let login= sessionStorage.getItem("code")
+//    let login1= localStorage.getItem("login")
+//     if(login1){
+//       navigate('/Photos');
+//     }
    
-})
+// })
   const adminlogin=()=>{
     // localStorage.setItem("login", true);
+   
     
  let email1= document.getElementById("email").value;
  let pass1= document.getElementById("pass").value;
@@ -28,24 +29,32 @@ export default function Login() {
  let email2=localStorage.getItem("email");
  let pass2=localStorage.getItem("pass");
 
+ let login= sessionStorage.getItem("code")
+let login1= localStorage.getItem("login")
+
 
  
 
- if(email1===email && pass1===pass){
+ if(email1===email && pass1===pass && login==="logout" ){
+
   dispatch({type:"user", payload: true})
   alert("correct email and pass vaild");
   //  window.location.href="/Photos"
-  sessionStorage.setItem("code", "login")
+ 
+  sessionStorage.setItem("code", "login");
  
  navigate('/Photos');
 
 }
-else if( email2===email1 && pass2===pass1){
+else if( email2===email1 && pass2===pass1 && login1!==true ){
+  
   dispatch({type:"user", payload: true})
   alert("correct email and pass vaild");
+  navigate('/Photos');
   //  window.location.href="/Photos"
-  sessionStorage.setItem("code", "login")
- navigate('/Photos');
+  //localStorage.setItem("login", true);
+  sessionStorage.setItem("code", "login");
+ 
  
   
  

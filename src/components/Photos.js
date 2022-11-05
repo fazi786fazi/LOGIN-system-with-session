@@ -1,15 +1,15 @@
 import React from 'react'
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 
 export default function Photos() {
-  const navigate = useNavigate();
-  let login= sessionStorage.getItem("code");
-  if(login==="login"){
+  //const navigate = useNavigate();
+  // let login= sessionStorage.getItem("code");
+  // if(login==="login"){
     
-  }
-  else if (login==="logout"){
-    navigate('/');
-  }
+  // }
+  // else if (login==="logout"){
+  //   navigate('/');
+  // }
  
 //   const List=()=>{
 //     const name=sessionStorage.getItem("name");
@@ -44,9 +44,14 @@ export default function Photos() {
   <div className="container px-5 py-2 mx-auto lg:pt-24 lg:px-32">
    {/* <List /> */}
    <h1 className='text-black text-lg font-medium text-center py-2'>
-   Wellcome:{sessionStorage.getItem("name")+" "+sessionStorage.getItem("lname")
-      ||
-     localStorage.getItem("name")+" "+localStorage.getItem("lname")}
+   Wellcome:{sessionStorage.getItem("name") !== null &&
+            sessionStorage.getItem("lname") !== null
+              ? sessionStorage.getItem("name") +
+                " " +
+                sessionStorage.getItem("lname")
+              : " " + "Admin" + " "+localStorage.getItem("name") +
+                " " +
+                localStorage.getItem("lname")}
       </h1>
 
     <div className="flex flex-wrap -m-1 md:-m-2">
