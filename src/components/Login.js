@@ -138,15 +138,26 @@ else if( email2===email1 && pass2===pass1 && login1!==true ){
                     }}
                   >
                     <div className="text-white px-4 py-6 md:p-12 md:mx-6">
-                      <h4 className="text-xl font-semibold mb-6">
-                        We are more than just a company
+                    <img
+                          className="mx-auto w-48 "
+                          src={nexflixlogo}
+                          alt="logo"
+                        />
+                      <h4 className="text-xl font-semibold mb-6 text-center">
+                        
+                         Netflix Company
                       </h4>
                       <p className="text-sm">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis
-                        nostrud exercitation ullamco laboris nisi ut aliquip ex
-                        ea commodo consequat.
+                      Netflix is a subscription-based 
+                      streaming service that allows our 
+                      members to watch TV shows and movies 
+                      on an internet-connected device.
+                      It has a huge selection of movies and 
+                      TV shows old and new, tons of high-quality 
+                      original programs, and an easy-to-navigate
+                       interface. Even though it no longer offers 
+                       a free trial, it's worth trying Netflix for 
+                       a month if you want something new to watch.
                       </p>
                     </div>
                   </div>

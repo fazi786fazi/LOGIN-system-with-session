@@ -49,7 +49,7 @@ export default function Photos() {
               ? sessionStorage.getItem("name") +
                 " " +
                 sessionStorage.getItem("lname")
-              : " " + "Admin" + " "+localStorage.getItem("name") +
+              :  " Admin " +localStorage.getItem("name") +
                 " " +
                 localStorage.getItem("lname")}
       </h1>
