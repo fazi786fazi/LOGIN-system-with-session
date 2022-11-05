@@ -14,12 +14,10 @@ export default function Login() {
     if(login1){
       navigate('/Photos');
     }
-    else if(login){
-      navigate('/Photos');
-    }
+   
 })
   const adminlogin=()=>{
-    localStorage.setItem("login", true);
+    // localStorage.setItem("login", true);
     
  let email1= document.getElementById("email").value;
  let pass1= document.getElementById("pass").value;

@@ -5,14 +5,14 @@ export default function Protected(props) {
     const {Cmp}= props;
     const navigate = useNavigate();
     useEffect(()=>{
-        let login= sessionStorage.getItem("code")
+      //  let login= sessionStorage.getItem("code")
         let login1= localStorage.getItem("login")
         if(!login1){
             navigate('/')
         }
-        else if(!login){
-            navigate('/')
-        }
+        // else if(!login){
+        //     navigate('/')
+        // }
     })
   return (
     <div>

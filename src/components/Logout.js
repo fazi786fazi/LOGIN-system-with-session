@@ -3,7 +3,7 @@ import Login from './Login';
 
 export default function Logout() {
     useEffect(() => {
-       sessionStorage.clear();
+      // sessionStorage.clear();
       }, []);
   return (
     <div>
