@@ -1,27 +1,68 @@
 //import React from 'react'
-import React, {useState} from 'react'
+//import React, {useState} from 'react'
 // import { useNavigate } from "react-router-dom";
 import { Link} from "react-router-dom";
 import nexflixlogo from "./netflix-logo-png-2584.png"
+import { n1 } from "../App";
+import { useContext } from "react";
 
 
-export default function Navbar() {
-  const [data, setData] = useState("login");
+export default function Navbar(props) {
+  function end(){
+  // sessionStorage.clear();
+  }
+
+  const {state}=useContext(n1);
+
+const Fun=()=>{
+   if (state){
+    return (
+      <>
+        <li>
+          <a href="/Logout" onClick={end} className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+            logout</a>
+        </li>
+      </>
+    )
+   }
+   else{
+    sessionStorage.setItem("code", "logout");
+    return(
+      <>
+       <li>
+          <a href="/" className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+        login</a>
+        </li>
+      </>
+    )
+   }
+}
+
+
+  //const [data, setData] = useState("login");
   // const navigate = useNavigate();
-  let code= sessionStorage.getItem("code");
+ // let code= sessionStorage.getItem("code");
 
-  const logout = () =>{
+  // const log = () =>{
+
+    
+  //   if (code==="login"){
+  //     setData("logout");
+  //   }
+  //  else if (code==="logout"){
+  //     setData("login");
+  //   }
    
     
-    sessionStorage.setItem("code", "logout");
-    setData(code);
+  
+   // setData(code);
     //sessionStorage.clear();
    
     // navigate('/');
    
    
 
-  }
+  
 //   function check(){
 //  if(code==="login"){
 //       setdata("logout");
@@ -52,14 +93,8 @@ export default function Navbar() {
           <Link to ="/Logout"  className="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">
             home</Link>
         </li>
-        <li>
-          <a href="/" onClick={logout} className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-        {data}</a>
-        </li>
+       <Fun />
         {/* <li>
-          <a href="/" className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
-        </li>
-        <li>
           <a href="/" className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
         </li>
         <li>

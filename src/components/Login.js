@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import nexflixlogo from "./netflix-logo-png-2584.png"
 
 import { Link, useNavigate } from "react-router-dom";
+import { n1 } from "../App";
 
 export default function Login() {
+  const {dispatch}=useContext(n1);
   const navigate = useNavigate();
+
+  useEffect(()=>{
+    let login= sessionStorage.getItem("code")
+    let login1= localStorage.getItem("login")
+    if(login1){
+      navigate('/Photos');
+    }
+    else if(login){
+      navigate('/Photos');
+    }
+})
   const adminlogin=()=>{
+    localStorage.setItem("login", true);
     
  let email1= document.getElementById("email").value;
  let pass1= document.getElementById("pass").value;
@@ -20,14 +34,16 @@ export default function Login() {
  
 
  if(email1===email && pass1===pass){
+  dispatch({type:"user", payload: true})
   alert("correct email and pass vaild");
   //  window.location.href="/Photos"
   sessionStorage.setItem("code", "login")
-
+ 
  navigate('/Photos');
 
 }
 else if( email2===email1 && pass2===pass1){
+  dispatch({type:"user", payload: true})
   alert("correct email and pass vaild");
   //  window.location.href="/Photos"
   sessionStorage.setItem("code", "login")
@@ -37,7 +53,9 @@ else if( email2===email1 && pass2===pass1){
  
  }
  else{
+  dispatch({type:"user", payload: false})
   alert("incorrect email and pass invaild");
+ 
  }
   }
   return (
@@ -60,7 +78,9 @@ else if( email2===email1 && pass2===pass1){
                           Login form NETFLIX account
                         </h4>
                       </div>
-                      <form>
+                      <form  type="submit"
+                            onSubmit={adminlogin}
+                             >
                         <p className="mb-4">Please login to your account</p>
                         <div className="mb-4">
                           <input
@@ -83,11 +103,6 @@ else if( email2===email1 && pass2===pass1){
                         <div className="text-center pt-1 mb-12 pb-1">
                           <button
                             className="inline-block bg-black px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
-                            type="submit"
-                            onClick={adminlogin}
-                       
-                          
-
                           >
                             Log in
                           </button>
