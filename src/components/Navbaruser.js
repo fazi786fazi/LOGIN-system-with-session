@@ -1,8 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import nexflixlogo from "./1487203696884.png";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { user } from "react-icons-kit/fa/user";
+import { Icon } from "react-icons-kit";
 
 export default function Navbar() {
+  function end() {
+    localStorage.setItem("login", "logout");
+    toast("Logout your account");
+    sessionStorage.setItem("code", "logout");
+    sessionStorage.clear();
+  }
+
   return (
     <div>
       <nav className="bg-red-500 border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 fixed w-full top-0 py-1">
@@ -49,12 +60,27 @@ export default function Navbar() {
                   Home
                 </Link>
               </li>
+              <span className="cursor-pointer  relative text-xs  ">
+                <Icon icon={user} />
+              </span>
+              <span className="">
+                {sessionStorage.getItem("name") !== null &&
+                sessionStorage.getItem("lname") !== null
+                  ? sessionStorage.getItem("name") +
+                    " " +
+                    sessionStorage.getItem("lname")
+                  : " Admin " +
+                    localStorage.getItem("name") +
+                    " " +
+                    localStorage.getItem("lname")}
+              </span>
               <li>
                 <a
                   href="/"
+                  onClick={end}
                   className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                 >
-                  Login
+                  Logout
                 </a>
               </li>
             </ul>
